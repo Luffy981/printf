@@ -1,5 +1,8 @@
 #include "holberton.h"
-void main(void)
+int main(void)
 {
-	_printf("Hola %c ", h);
+	char h[] = "Hola mundo";
+	char t = 'P';
+	_printf("Hola %% %s %c\nmundo\n", h,t);
+	return(0);
 }
