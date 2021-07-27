@@ -26,5 +26,5 @@ int p_char(va_list, char **ffub);
 int (*check_match(const char *format))(va_list, char **ffub);
 int p_string(va_list, char **ffub);
 int p_integer(va_list d, char **ffub);
-int p_int(va_list i , char **ffub);
+int p_int(va_list i, char **ffub);
 #endif
