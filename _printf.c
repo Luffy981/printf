@@ -1,9 +1,9 @@
 #include "holberton.h"
-int (*check_match(const char *format))(va_list)
+int (*check_match(const char *format))(va_list ,char **buff)
 {
 	unsigned int i;
 	op_t ops[]={
-		{"s",p_string},
+ 		{"s",p_string},
 		{"c",p_char},
 		{NULL,NULL}
 	};
@@ -20,45 +20,47 @@ int (*check_match(const char *format))(va_list)
 }
 int _printf(const char *format, ...)
 {
-	const char *arr=NULL;
-	int count=0;
+	const char *arr = NULL;
+	int count = 0;
+	char buff[2000];
+	char *ffub = buff;
 	va_list parameters;
-	int (*q)(va_list)=NULL;
+	int (*q)(va_list,char **buff) = NULL;
 
 	if(format == NULL)
 	{
 		return(0);
 	}
-
 	va_start(parameters,format);
-	for (arr = format ; *arr != '\0' ; arr++)
+	for (arr = format ; *arr ; arr++)
 	{
 		while(*arr != '%' && *arr != '\0')
 		{
-			d_puts(*arr);
+			*ffub++ =*arr++;
 			count++;
-			arr++;
-			if(*arr == '%' && *(arr+1) == '%')
-			{
-				d_puts('%');
-				arr++;
-				arr++;
-				count++;
-			}
 		}
-		arr++;
-		q = check_match(arr);
-		if( q!=NULL)
+		if(*arr == '%' && *(arr+1) == '%')
 		{
-			count += q(parameters);
+			*ffub = ('%');
+			arr++, ffub++, count++;
 			continue;
 		}
-		if(*(arr+1)=='\0')
+		if(*arr == '%')
 		{
-			return(-1);
+			arr++;
+			q = check_match(arr);
+			if( q!=NULL)
+			{
+				count += q(parameters,&ffub);
+				continue;
+			}
 		}
-		d_puts(*arr);
+		if(*arr == '\0')
+		{
+			--arr;
+		}
 	}
+	d_puts(buff,ffub-(char*)buff);
 	va_end(parameters);
 	return(count);
 }
