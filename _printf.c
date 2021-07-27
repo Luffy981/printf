@@ -1,5 +1,4 @@
 #include "holberton.h"
-
 /**
  * check_match - match with the functions respectively
  * @format: string that contains the format
@@ -12,6 +11,7 @@ int (*check_match(const char *format))(va_list, char **buff)
 	op_t ops[] = {
 		{"s", p_string},
 		{"c", p_char},
+		{"d", p_integer},
 		{NULL, NULL}
 	};
 	i = 0;
@@ -47,14 +47,10 @@ int _printf(const char *format, ...)
 	for (arr = format ; *arr ; arr++)
 	{
 		while (*arr != '%' && *arr != '\0')
-		{
-			*ffub++ = *arr++;
-			count++;
-		}
+			*ffub++ = *arr++, count++;
 		if (*arr == '%' && *(arr + 1) == '%')
 		{
-			*ffub = ('%');
-			arr++, ffub++, count++;
+			*ffub = ('%'), arr++, ffub++, count++;
 			continue;
 		}
 		if (*arr == '%')
@@ -64,6 +60,11 @@ int _printf(const char *format, ...)
 			if (q != NULL)
 			{
 				count += q(parameters, &ffub);
+				continue;
+			} else
+			{
+				*ffub = ('%');
+				ffub++, *ffub = *arr, ffub++;
 				continue;
 			}
 		}
