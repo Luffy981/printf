@@ -36,7 +36,7 @@ int _printf(const char *format, ...)
 {
 	const char *arr = NULL;
 	int count = 0;
-	char buff[2000];
+	char buff[2050];
 	char *ffub = buff;
 	va_list parameters;
 	int (*q)(va_list, char **buff) = NULL;
