@@ -97,3 +97,11 @@ int p_integer(va_list d, char **ffub)
 
 	return (count);
 }
+int p_int(va_list i, char **ffub)
+{
+	int n;/*Numero extraido de los argumentos*/
+	int count = 0;/*Contador de digitos almacenados en el buffer*/
+	n = va_arg(i, int);
+	count += number_to_buff(n,ffub);
+	return (count);
+}

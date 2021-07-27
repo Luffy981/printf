@@ -12,6 +12,7 @@ int (*check_match(const char *format))(va_list, char **buff)
 		{"s", p_string},
 		{"c", p_char},
 		{"d", p_integer},
+		{"i", p_int},
 		{NULL, NULL}
 	};
 	i = 0;
