@@ -41,13 +41,13 @@ int p_string(va_list s, char **ffub)
 }
 
 /**
- * p_integer - function of integer
- * @d: integer
+ * number_to_buff - parameters function
+ * @number: number
  * @ffub: ffub
  *
  * Return: count
  */
-int number_to_buff(int number,char **ffub)
+int number_to_buff(int number, char **ffub)
 {
 	unsigned int num;
 	unsigned int r;
@@ -56,8 +56,10 @@ int number_to_buff(int number,char **ffub)
 	int f; /*potencia de 10*/
 	int t;/*Extrae digito por digito y lo agrega al buffer*/
 	int count = 0;/*Contador de digitos almacenados en el buffer*/
+
 	b = 1;
 	f = 1;
+
 	if (number < 0)
 	{
 		**ffub = '-';
@@ -85,23 +87,41 @@ int number_to_buff(int number,char **ffub)
 		count++, (*ffub)++;
 		b--;
 	}
-	return(count);
+	return (count);
 }
+
+/**
+ * p_integer - functions
+ * @d: value
+ * @ffub: ffub
+ *
+ * Return: count
+ */
 int p_integer(va_list d, char **ffub)
 {
 	int n;/*Numero extraido de los argumentos*/
 	int count = 0;/*Contador de digitos almacenados	en el buffer*/
 
 	n = va_arg(d, int);
-	count += number_to_buff(n,ffub);
+	count += number_to_buff(n, ffub);
 
 	return (count);
 }
+
+/**
+ * p_int - function of int
+ * @i: integer
+ * @ffub: ffub
+ *
+ * Return: count
+ */
 int p_int(va_list i, char **ffub)
 {
 	int n;/*Numero extraido de los argumentos*/
 	int count = 0;/*Contador de digitos almacenados en el buffer*/
+
 	n = va_arg(i, int);
-	count += number_to_buff(n,ffub);
+	count += number_to_buff(n, ffub);
+
 	return (count);
 }
