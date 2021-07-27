@@ -17,14 +17,14 @@
 typedef struct op
 {
 	char *op;
-	int (*f)(va_list);
+	int (*f)(va_list, char **ffub);
 } op_t;
 
 int _printf(const char *format, ...);
-int d_puts(char c);
-int p_char(va_list);
-int (*check_match(const char *format))(va_list);
-int p_string(va_list);
-int _strlen(const char *str);
+int d_puts(char *buff, int size_buff);
+int p_char(va_list, char **ffub);
+int (*check_match(const char *format))(va_list, char **ffub);
+int p_string(va_list, char **ffub);
+int p_integer(va_list d, char **ffub);
 
 #endif
