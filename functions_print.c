@@ -39,6 +39,14 @@ int p_string(va_list s, char **ffub)
 	}
 	return (count);
 }
+
+/**
+ * p_integer - function of integer
+ * @d: integer
+ * @ffub: ffub
+ *
+ * Return: count
+ */
 int p_integer(va_list d, char **ffub)
 {
 	unsigned int num;
