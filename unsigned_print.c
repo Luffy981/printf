@@ -94,3 +94,21 @@ int p_octal(va_list o, char **ffub)
 	count += number_to_buff(octal, ffub);
 	return (count);
 }
+int p_unsigned(va_list u, char **ffub)
+{
+	int n;
+	long int num;
+	int count = 0;
+
+	n = va_arg(u, int);
+	if (n < 0)
+	{
+		num = -n;
+		num = 4294967295 - num + 1;
+	} else
+	{
+		num = n;
+	}
+	count += number_to_buff(num, ffub);
+	return (count);
+}
