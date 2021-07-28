@@ -47,13 +47,13 @@ int p_string(va_list s, char **ffub)
  *
  * Return: count
  */
-int number_to_buff(int number, char **ffub)
+int number_to_buff(long int number, char **ffub)
 {
-	unsigned int num;
-	unsigned int r;
+	long int num;
+	long int r;
 	int i;/*iterador para obtener f*/
 	int b; /*Contador de dígitos*/
-	int f; /*potencia de 10*/
+	long int f; /*potencia de 10*/
 	int t;/*Extrae digito por digito y lo agrega al buffer*/
 	int count = 0;/*Contador de digitos almacenados en el buffer*/
 
@@ -79,10 +79,10 @@ int number_to_buff(int number, char **ffub)
 	{
 		f *= 10;
 	}
-	while (b >= 1)/*asigna digito por digito al buffer*/
+	while (b > 1 || f > 0)/*asigna digito por digito al buffer*/
 	{
 		t = (r / f) % 10;
-		f = f / 10;
+		f /= 10;
 		**ffub = t + '0';
 		count++, (*ffub)++;
 		b--;
@@ -104,7 +104,6 @@ int p_integer(va_list d, char **ffub)
 
 	n = va_arg(d, int);
 	count += number_to_buff(n, ffub);
-
 	return (count);
 }
 
