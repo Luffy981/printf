@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <limits.h>
 
 /**
  * struct op - structure containing
@@ -28,7 +29,8 @@ int p_string(va_list, char **ffub);
 int p_integer(va_list d, char **ffub);
 int p_int(va_list i, char **ffub);
 int p_octal(va_list o, char **ffub);
-int number_to_buff(int number, char **ffub);
+int number_to_buff(long  int number, char **ffub);
 int p_binary(va_list b, char **ffub);
+int string_to_buff(char **bin, char **ffub, int size_string);
 
 #endif
