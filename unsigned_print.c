@@ -112,3 +112,28 @@ int p_unsigned(va_list u, char **ffub)
 	count += number_to_buff(num, ffub);
 	return (count);
 }
+int p_reverse_string(va_list u, char **ffub)
+{
+	char *str;
+	int i = 0;
+	char **pstr = &str;
+	int count = 0;
+
+	str = va_arg(u, char *);
+	if (str == NULL)
+		return (0);
+	while (*str)
+	{
+		(*pstr)++;
+		i++;
+	}
+	while (i >= 0)
+	{
+		**ffub = **pstr;
+		(*pstr)--;
+		(*ffub)++;
+		i--;
+		count++;
+	}
+	return (count);
+}

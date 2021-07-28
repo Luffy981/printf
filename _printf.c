@@ -16,6 +16,7 @@ int (*check_match(const char *format))(va_list, char **buff)
 		{"o", p_octal},
 		{"b", p_binary},
 		{"u", p_unsigned},
+		{"r", p_reverse_string},
 		{NULL, NULL}
 	};
 	i = 0;

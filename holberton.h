@@ -32,6 +32,6 @@ int p_octal(va_list o, char **ffub);
 int number_to_buff(long  int number, char **ffub);
 int p_binary(va_list b, char **ffub);
 int p_unsigned(va_list u, char **ffub);
+int p_reverse_string(va_list u, char **ffub);
 int string_to_buff(char **bin, char **ffub, int size_string);
-
 #endif
