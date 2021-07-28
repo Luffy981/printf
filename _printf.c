@@ -13,6 +13,8 @@ int (*check_match(const char *format))(va_list, char **buff)
 		{"c", p_char},
 		{"d", p_integer},
 		{"i", p_int},
+		{"o", p_octal},
+		{"b", p_binary},
 		{NULL, NULL}
 	};
 	i = 0;
