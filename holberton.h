@@ -27,4 +27,8 @@ int (*check_match(const char *format))(va_list, char **ffub);
 int p_string(va_list, char **ffub);
 int p_integer(va_list d, char **ffub);
 int p_int(va_list i, char **ffub);
+int p_octal(va_list o, char **ffub);
+int number_to_buff(int number, char **ffub);
+int p_binary(va_list b, char **ffub);
+
 #endif
