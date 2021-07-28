@@ -56,19 +56,19 @@ int _printf(const char *format, ...)
 			*ffub = ('%'), arr++, ffub++, count++;
 			continue;
 		}
-		if (*arr == '%')
+		while (*arr == '%')
 		{
+			for (; *(arr + 1) == ' ' ;)
+				arr++;
 			arr++;
 			q = check_match(arr);
 			if (q != NULL)
 			{
 				count += q(parameters, &ffub);
-				continue;
 			} else
 			{
 				*ffub = ('%');
-				ffub++, *ffub = *arr, ffub++;
-				continue;
+				ffub++, *ffub = *arr, count++, ffub++;
 			}
 		}
 		if (*arr == '\0')
