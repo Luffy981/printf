@@ -40,12 +40,15 @@ int (*check_match(const char *format))(va_list, char **buff)
 int _printf(const char *format, ...)
 {
 	const char *arr = NULL;
+	int a = 0;
 	int count = 0;
 	char buff[2050];
 	char *ffub = buff;
 	va_list parameters;
 	int (*q)(va_list, char **buff) = NULL;
 
+	while (a <= 2050)
+		buff[a] = '\0', a++;
 	if (format == NULL)
 		return (0);
 	va_start(parameters, format);
@@ -65,14 +68,10 @@ int _printf(const char *format, ...)
 			arr++;
 			q = check_match(arr);
 			if (q != NULL)
-			{
 				count += q(parameters, &ffub);
-			} else
-			{
-				*ffub = ('%');
-				ffub++, *ffub = *arr, count++, ffub++;
-			}
-		}
+			else
+				*ffub = ('%'), ffub++, *ffub = *arr, count++, (*ffub)++;
+	}
 		if (*arr == '\0')
 			--arr;
 	}

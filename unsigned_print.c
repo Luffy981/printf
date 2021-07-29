@@ -10,11 +10,17 @@
 int p_binary(va_list b, char **ffub)
 {
 	int n;
+	int clean = 0;
 	long int num;
 	char binary[50];
 	char *bin = binary;
 	int count = 0;
 
+	while (clean <= 50)
+	{
+		binary[clean] = '\0';
+		clean++;
+	}
 	n = va_arg(b, int);
 	if (n < 0)
 	{
@@ -129,14 +135,14 @@ int p_unsigned(va_list u, char **ffub)
 int p_reverse_string(va_list r, char **ffub)
 {
 	char *str;
-	int i = 0;
 	char **pstr = &str;
 	int count = 0;
+	int i = 0;
 
 	str = va_arg(r, char *);
 	if (str == NULL)
 		return (0);
-	while (*str)
+	while (**pstr != '\0')
 	{
 		(*pstr)++;
 		i++;
@@ -144,10 +150,10 @@ int p_reverse_string(va_list r, char **ffub)
 	while (i >= 0)
 	{
 		**ffub = **pstr;
+		count++;
+		i--;
 		(*pstr)--;
 		(*ffub)++;
-		i--;
-		count++;
 	}
 	return (count);
 }
