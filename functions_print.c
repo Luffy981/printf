@@ -14,6 +14,8 @@ int p_char(va_list c, char **ffub)
 	h = va_arg(c, int);
 	**ffub = (h);
 	(*ffub)++;
+	if (h == '\0')
+		return (0);
 	return (1);
 }
 
