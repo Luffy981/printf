@@ -1,5 +1,6 @@
-.TH _printf
-.SH DESCRIPTION
+#_printf
+
+##DESCRIPTION
 Prints ARGUMENT(s) based on FORMAT
 
 If format includes format specifiers (subsequences beginning with %), the \
@@ -13,9 +14,9 @@ Upon successful return, these functions return the number of characters printed\
 
 If an output error is encountered, a negative value is returned.
 
-.SH AUTHORS
+## AUTHORS
 -Luis Velasquez.
 
 -Smith Flores.
 
-_printf("end").
+##_printf("end").
