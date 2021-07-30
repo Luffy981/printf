@@ -51,3 +51,39 @@ int p_address(va_list p, char **ffub)
 	count += number_to_hex(number, ffub);
 	return (count);
 }
+int p_rot_string(va_list R, char **ffub)
+{
+	char *str;
+	int count = 0;
+	char string[] = "(null)";
+	char *rts = string;
+
+	str = va_arg(R, char*);
+	if (str == NULL)
+	{
+		while (*rts != 0)
+		{
+			**ffub = *rts;
+			(*ffub)++;
+			count++;
+			rts++;
+		}
+	}
+	while (*string)
+	{
+		if ((*str >= 65 && *str <= 78) ||
+		    (*str >= 97 && *str <= 110))
+		{
+			*str = (*str + 13);
+		} else if ((*str >= 79 && *str <= 90) ||
+			   (*str >= 111 && *str <= 122))
+		{
+			*str = (*str - 13);
+		}
+		**ffub = *str;
+		(*ffub)++;
+		str++;
+		count++;
+	}
+	return (count);
+}
