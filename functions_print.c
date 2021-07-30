@@ -15,7 +15,7 @@ int p_char(va_list c, char **ffub)
 	**ffub = (h);
 	(*ffub)++;
 	if (h == '\0')
-		return (0);
+		return (1);
 	return (1);
 }
 

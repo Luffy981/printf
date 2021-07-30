@@ -54,7 +54,7 @@ int _printf(const char *format, ...)
 	while (a <= 2050)
 		buff[a] = '\0', a++;
 	if (format == NULL)
-		return (0);
+		return (255);
 	va_start(parameters, format);
 	for (arr = format ; *arr ; arr++)
 	{
@@ -70,11 +70,11 @@ int _printf(const char *format, ...)
 				count += q(parameters, &ffub), arr++;
 			else
 			{
+				if (*arr == '\0')
+					return (255);
 				*ffub = '%', count++, ffub++;
 				if (*arr == '\n')
-				{
 					*ffub = ' ', count++, ffub++;
-				}
 			}
 		}
 		if (*arr != '%')
