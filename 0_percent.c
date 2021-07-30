@@ -17,6 +17,13 @@ int p_percent(__attribute__((unused))va_list p, char **ffub)
 	count++;
 	return (count);
 }
+/**
+ * p_address - function to print the address
+ * @p: Parameter
+ * @ffub: Double pointer to buffer
+ *
+ * Return: 1
+ */
 int p_address(va_list p, char **ffub)
 {
 	long int number;
