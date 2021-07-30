@@ -13,7 +13,7 @@ int binary_string_to_buff(char **bin, char **ffub, int size_string)
 
 	while (size_string >= 0)
 	{
-		**ffub = **bin+'0';
+		**ffub = **bin + '0';
 		(*bin)--;
 		(*ffub)++;
 		count++;
