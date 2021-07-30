@@ -80,7 +80,7 @@ int _printf(const char *format, ...)
 		if (*arr != '%')
 			arr--;
 	}
-	d_puts(buff, ffub - (char *)buff + 1);
+	d_puts(buff, ffub - (char *)buff);
 	va_end(parameters);
 	return (count);
 }
