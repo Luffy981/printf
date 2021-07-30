@@ -42,7 +42,7 @@ int p_binary(va_list b, char **ffub)
 	}
 	while (a < count)
 	{
-		**ffub = *bin;
+		**ffub = *bin + '0';
 		(*ffub)++;
 		bin--;
 		a++;
