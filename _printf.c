@@ -22,6 +22,7 @@ int (*check_match(const char *format))(va_list, char **buff)
 		{"S", p_heX_string},
 		{"x", p_hex_number},
 		{"p", p_address},
+		{"R", p_rot_string},
 		{NULL, NULL}
 	};
 	i = 0;
@@ -79,7 +80,7 @@ int _printf(const char *format, ...)
 		if (*arr != '%')
 			arr--;
 	}
-	d_puts(buff, ffub - (char *)buff + 1);
+	d_puts(buff, ffub - (char *)buff);
 	va_end(parameters);
 	return (count);
 }
