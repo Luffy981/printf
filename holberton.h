@@ -34,5 +34,8 @@ int p_binary(va_list b, char **ffub);
 int p_unsigned(va_list u, char **ffub);
 int p_reverse_string(va_list r, char **ffub);
 int p_percent(va_list p, char **ffub);
+int p_heX_number(va_list X, char **ffub);
+int p_heX_string(va_list S, char **ffub);
+int number_to_hex(long int n, char **ffub);
 int string_to_buff(char **bin, char **ffub, int size_string);
 #endif
