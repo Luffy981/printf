@@ -21,6 +21,7 @@ int (*check_match(const char *format))(va_list, char **buff)
 		{"X", p_heX_number},
 		{"S", p_heX_string},
 		{"x", p_hex_number},
+		{"p", p_address},
 		{NULL, NULL}
 	};
 	i = 0;

@@ -40,4 +40,5 @@ int number_to_heX(long int n, char **ffub);
 int p_heX_string(va_list S, char **ffub);
 int number_to_hex(long int n, char **ffub);
 int string_to_buff(char **bin, char **ffub, int size_string);
+int p_address(va_list p, char **ffub);
 #endif

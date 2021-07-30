@@ -29,7 +29,7 @@ int p_heX_string(va_list S, char **ffub)
 			(*ffub)++;
 			p--;
 			count++;
-			count += number_to_hex(**rts, ffub);
+			count += number_to_heX(**rts, ffub);
 			(*rts)++;
 		}
 		**ffub = **rts;
