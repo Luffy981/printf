@@ -1,6 +1,6 @@
-#_printf
+# _printf
 
-##DESCRIPTION
+## DESCRIPTION
 Prints ARGUMENT(s) based on FORMAT
 
 If format includes format specifiers (subsequences beginning with %), the \
@@ -19,4 +19,4 @@ If an output error is encountered, a negative value is returned.
 
 -Smith Flores.
 
-##_printf("end").
+## _printf("end").
