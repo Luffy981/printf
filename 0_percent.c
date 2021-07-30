@@ -51,6 +51,13 @@ int p_address(va_list p, char **ffub)
 	count += number_to_hex(number, ffub);
 	return (count);
 }
+/**
+ * p_rot_string - function to print a string with rot format
+ * @R: Parameter
+ * @ffub: Double pointer to buffer
+ *
+ * Return: Return value count
+ */
 int p_rot_string(va_list R, char **ffub)
 {
 	char *str;
