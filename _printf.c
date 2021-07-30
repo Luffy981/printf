@@ -11,6 +11,7 @@ int (*check_match(const char *format))(va_list, char **buff)
 	op_t ops[] = {
 		{"s", p_string},
 		{"c", p_char},
+		{"%", p_percent},
 		{"d", p_integer},
 		{"i", p_int},
 		{"o", p_octal},
@@ -30,7 +31,6 @@ int (*check_match(const char *format))(va_list, char **buff)
 	}
 	return (*(ops[i]).f);
 }
-
 /**
  * _printf - prints formatted data to stdout
  * @format: string that contains the format to print
@@ -40,8 +40,7 @@ int (*check_match(const char *format))(va_list, char **buff)
 int _printf(const char *format, ...)
 {
 	const char *arr = NULL;
-	int a = 0;
-	int count = 0;
+	int a = 0, count = 0;
 	char buff[2050];
 	char *ffub = buff;
 	va_list parameters;
@@ -55,27 +54,28 @@ int _printf(const char *format, ...)
 	for (arr = format ; *arr ; arr++)
 	{
 		while (*arr != '%' && *arr != '\0')
-			*ffub++ = *arr++, count++;
-		if (*arr == '%' && *(arr + 1) == '%')
-		{
-			*ffub = ('%'), arr++, ffub++, count++;
-			continue;
-		}
+			*ffub = *arr, ffub++, arr++, count++;
 		while (*arr == '%')
 		{
-			for (; *(arr + 1) == ' ' ;)
-				arr++;
 			arr++;
+			while (*arr == ' ')
+				arr++;
 			q = check_match(arr);
 			if (q != NULL)
-				count += q(parameters, &ffub);
+				count += q(parameters, &ffub), arr++;
 			else
-				*ffub = ('%'), ffub++, *ffub = *arr, count++, (*ffub)++;
+			{
+				*ffub = '%', count++, ffub++;
+				if (*arr == '\n')
+				{
+					*ffub = ' ', count++, ffub++;
+				}
+			}
+		}
+		if (*arr != '%')
+			arr--;
 	}
-		if (*arr == '\0')
-			--arr;
-	}
-	d_puts(buff, ffub - (char *)buff);
+	d_puts(buff, ffub - (char *)buff + 1);
 	va_end(parameters);
 	return (count);
 }
