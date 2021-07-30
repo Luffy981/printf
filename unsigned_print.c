@@ -15,6 +15,7 @@ int p_binary(va_list b, char **ffub)
 	char binary[50];
 	char *bin = binary;
 	int count = 0;
+	int a = 0;
 
 	while (clean <= 50)
 	{
@@ -34,11 +35,18 @@ int p_binary(va_list b, char **ffub)
 	{
 		*bin = (num % 2);
 		num = num / 2;
-		if (num == 0)
+		count++;
+		if (num <= 0)
 			break;
 		bin++;
 	}
-	count += string_to_buff(&bin, ffub, bin - (char *)binary);
+	while (a < count)
+	{
+		**ffub = *bin + '0';
+		(*ffub)++;
+		bin--;
+		a++;
+	}
 	return (count);
 }
 /**

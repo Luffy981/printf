@@ -18,6 +18,8 @@ int (*check_match(const char *format))(va_list, char **buff)
 		{"b", p_binary},
 		{"u", p_unsigned},
 		{"r", p_reverse_string},
+		{"X", p_heX_number},
+		{"S", p_heX_string},
 		{NULL, NULL}
 	};
 	i = 0;
