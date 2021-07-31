@@ -27,7 +27,7 @@ int p_percent(__attribute__((unused))va_list p, char **ffub)
 int p_address(va_list p, char **ffub)
 {
 	long int number;
-	char str[] = "(null)";
+	char str[] = "(nil)";
 	char *rts = str;
 	int count = 0;
 
@@ -41,6 +41,7 @@ int p_address(va_list p, char **ffub)
 			count++;
 			rts++;
 		}
+		return (count);
 	}
 	**ffub = '0';
 	(*ffub)++;

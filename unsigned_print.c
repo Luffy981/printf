@@ -153,6 +153,7 @@ int p_reverse_string(va_list r, char **ffub)
 		(*pstr)++;
 		i++;
 	}
+	(*pstr)--;
 	while (i >= 0)
 	{
 		**ffub = **pstr;
