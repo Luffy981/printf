@@ -54,7 +54,7 @@ int _printf(const char *format, ...)
 	while (a <= 2050)
 		buff[a] = '\0', a++;
 	if (format == NULL)
-		return (255);
+		return (-1);
 	va_start(parameters, format);
 	for (arr = format ; *arr ; arr++)
 	{
