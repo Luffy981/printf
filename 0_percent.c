@@ -63,8 +63,8 @@ int p_rot_string(va_list R, char **ffub)
 {
 	char *str;
 	int count = 0;
-	char in[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char out[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	char in[56] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char out[56] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 	char *tuo = NULL;
 	char string[] = "(ahyy)";
 	char *rts = string;
@@ -90,8 +90,7 @@ int p_rot_string(va_list R, char **ffub)
 			{
 				if (*str == in[a])
 				{
-					*str = *tuo;
-					**ffub = *str;
+					**ffub = *tuo;
 					(*ffub)++;
 					count++;
 					break;
