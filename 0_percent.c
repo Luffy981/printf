@@ -96,6 +96,8 @@ int p_rot_string(va_list R, char **ffub)
 					break;
 				}
 			}
+			if (*tuo == '\0')
+				**ffub = *str, (*ffub)++, count++;
 		}
 	}
 	return (count);
