@@ -63,8 +63,12 @@ int p_rot_string(va_list R, char **ffub)
 {
 	char *str;
 	int count = 0;
-	char string[] = "(null)";
+	char in[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char out[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	char *tuo = NULL;
+	char string[] = "(ahyy)";
 	char *rts = string;
+	int a = 0;
 
 	str = va_arg(R, char*);
 	if (str == NULL)
@@ -77,21 +81,23 @@ int p_rot_string(va_list R, char **ffub)
 			rts++;
 		}
 	}
-	while (*string)
+	while (*str != '\0')
 	{
-		if ((*str >= 65 && *str <= 78) ||
-		    (*str >= 97 && *str <= 110))
+		for (; *str ; str++)
 		{
-			*str = (*str + 13);
-		} else if ((*str >= 79 && *str <= 90) ||
-			   (*str >= 111 && *str <= 122))
-		{
-			*str = (*str - 13);
+			tuo = out;
+			for (a = 0 ; in[a] != '\0' ; a++, tuo++)
+			{
+				if (*str == in[a])
+				{
+					*str = *tuo;
+					**ffub = *str;
+					(*ffub)++;
+					count++;
+					break;
+				}
+			}
 		}
-		**ffub = *str;
-		(*ffub)++;
-		str++;
-		count++;
 	}
 	return (count);
 }

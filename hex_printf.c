@@ -83,6 +83,12 @@ int p_heX_number(va_list X, char **ffub)
 	int count = 0;
 
 	n = va_arg(X, int);
+	if (n == 0)
+	{
+		**ffub = n + '0';
+		(*ffub)++;
+		return (1);
+	}
 	if (n < 0)
 	{
 		num = -n;
@@ -108,6 +114,12 @@ int p_hex_number(va_list x, char **ffub)
 	int count = 0;
 
 	n = va_arg(x, int);
+	if (n == 0)
+	{
+		**ffub = n + '0';
+		(*ffub)++;
+		return (1);
+	}
 	if (n < 0)
 	{
 		num = -n;
