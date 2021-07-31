@@ -157,10 +157,12 @@ int p_reverse_string(va_list r, char **ffub)
 	while (i >= 0)
 	{
 		**ffub = **pstr;
-		count++;
 		i--;
+		if (i < 0)
+			break;
 		(*pstr)--;
 		(*ffub)++;
+		count++;
 	}
 	return (count);
 }
