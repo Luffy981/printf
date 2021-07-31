@@ -9,28 +9,26 @@
  */
 int p_binary(va_list b, char **ffub)
 {
-	int n;
-	int clean = 0;
+	int n, clean = 0, count = 0, a = 0;
 	long int num;
 	char binary[50];
 	char *bin = binary;
-	int count = 0;
-	int a = 0;
 
 	while (clean <= 50)
-	{
-		binary[clean] = '\0';
-		clean++;
-	}
+		binary[clean] = '\0', clean++;
 	n = va_arg(b, int);
+	if (n == 0)
+	{
+		**ffub = n + '0';
+		(*ffub)++;
+		return (1);
+	}
 	if (n < 0)
 	{
 		num = -n;
 		num = 4294967295 - num + 1;
 	} else
-	{
 		num = n;
-	}
 	while (num > 0)
 	{
 		*bin = (num % 2);
