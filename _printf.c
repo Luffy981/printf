@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "main.h"
 /**
  * check_match - match with the functions respectively
  * @format: string that contains the format

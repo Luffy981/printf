@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "main.h"
 /**
  * p_heX_string - function to print a string with hexadecimal characaters
  * @S: Argument

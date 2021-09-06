@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "main.h"
 /**
  * p_percent - function to print '%'
  * @p: Unused paramater
@@ -26,12 +26,13 @@ int p_percent(__attribute__((unused))va_list p, char **ffub)
  */
 int p_address(va_list p, char **ffub)
 {
-	long int number;
+	long long int number;
 	char str[] = "(nil)";
 	char *rts = str;
 	int count = 0;
 
 	number = va_arg(p, long int);
+
 	if (number == 0)
 	{
 		while (*rts != '\0')
@@ -49,6 +50,10 @@ int p_address(va_list p, char **ffub)
 	**ffub = 'x';
 	(*ffub)++;
 	count++;
+	if (number < 0)
+	{
+		number = ULONG_MAX - number + 1;
+	}
 	count += number_to_hex(number, ffub);
 	return (count);
 }

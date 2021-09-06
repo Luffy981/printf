@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "main.h"
 /**
  * binary_string_to_buff - function to add a binary string in buffer
  * @bin: Double pointer to binary string
